@@ -50,3 +50,13 @@ rm -rf %{buildroot}
 %{_bindir}/%module
 %{python_sitelib}/*
 
+
+
+%changelog
+* Wed Jun 08 2011 Antoine Ginies <aginies@mandriva.com> 0.7.5-1mdv2011.0
++ Revision: 683258
+- import python-netaddr
+
+
+* Wed Jun 8 2011 Antoine Ginies <aginies@mandriva.com> 0.7.5
+- first release for Mandriva 
