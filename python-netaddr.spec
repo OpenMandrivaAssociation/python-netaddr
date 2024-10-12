@@ -1,13 +1,14 @@
 %define module netaddr
 
 Name:           python-%module
-Version:        0.7.10
-Release:        2
+Version:        1.3.0
+Release:        1
 License:        BSD3c
 Summary:        Pythonic manipulation of IPv4, IPv6, CIDR, EUI and MAC network addresses
-Url:            http://code.google.com/p/netaddr
+Url:            https://pypi.org/project/netaddr/
 Group:          Development/Python
-Source:         https://github.com/downloads/drkjam/netaddr/netaddr-%{version}.tar.gz
+#Source:         https://github.com/downloads/drkjam/netaddr/netaddr-%{version}.tar.gz
+Source:		https://files.pythonhosted.org/packages/source/n/netaddr/netaddr-%{version}.tar.gz
 BuildRequires:  python-devel
 BuildRequires:  python-setuptools
 BuildArch:      noarch
@@ -31,29 +32,13 @@ Included are routines for:
 
 %prep
 %setup -q -n %module-%{version}
-chmod -x AUTHORS CHANGELOG COPYRIGHT README LICENSE THANKS # remove executable bit from docs
 
 %build
-CFLAGS="%{optflags}" python setup.py build
+%py_build
 
 %install
-%{__python} setup.py install --root %{buildroot} --install-purelib=%{py_puresitedir}
-
-%clean
+%py_install
 
 %files
-%doc AUTHORS CHANGELOG COPYRIGHT README LICENSE THANKS
 %{_bindir}/%module
 %{py_puresitedir}/*
-
-
-
-%changelog
-* Wed Jun 08 2011 Antoine Ginies <aginies@mandriva.com> 0.7.5-1mdv2011.0
-+ Revision: 683258
-- import python-netaddr
-
-
-* Wed Jun 8 2011 Antoine Ginies <aginies@mandriva.com> 0.7.5
-- first release for Mandriva 
-
