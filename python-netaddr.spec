@@ -9,8 +9,8 @@ Url:            https://pypi.org/project/netaddr/
 Group:          Development/Python
 #Source:         https://github.com/downloads/drkjam/netaddr/netaddr-%{version}.tar.gz
 Source:		https://files.pythonhosted.org/packages/source/n/netaddr/netaddr-%{version}.tar.gz
-BuildRequires:  python-devel
-BuildRequires:  python-setuptools
+BuildSystem:	python
+BuildRequires:  python%{pyver}dist(setuptools)
 BuildArch:      noarch
 
 %description
@@ -29,15 +29,6 @@ Included are routines for:
     - arbitrary IP address range calculations and conversions;
     - querying IEEE OUI and IAB organisational information;
     - querying of IP standards related data from key IANA data sources.
-
-%prep
-%setup -q -n %module-%{version}
-
-%build
-%py_build
-
-%install
-%py_install
 
 %files
 %{_bindir}/%module
