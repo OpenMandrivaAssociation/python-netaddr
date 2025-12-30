@@ -2,7 +2,7 @@
 
 Name:           python-%module
 Version:        1.3.0
-Release:        2
+Release:        3
 License:        BSD3c
 Summary:        Pythonic manipulation of IPv4, IPv6, CIDR, EUI and MAC network addresses
 Url:            https://pypi.org/project/netaddr/
